@@ -2,6 +2,7 @@
 
 using namespace std;
 
+template <typename T>
 class Calculator
 {
     public:
@@ -10,13 +11,13 @@ class Calculator
             cout<<"Welcome to the calculator world! Please choose your operation"<<endl;
             cout<<"Press + for addition, - for subtraction , x for multiplication and / for division"<<endl;
         }
-        void addition(long long a,long long b);
+        void addition(T a,T b);
 
-        void subtraction(long long a,long long b);
+        void subtraction(T a,T b);
 
-        void division(long long a,long long b);
+        void division(T a,T b);
 
-        void multiplication(long long a,long long b);
+        void multiplication(T a,T b);
 
         
     

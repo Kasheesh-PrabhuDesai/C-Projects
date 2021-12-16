@@ -33,7 +33,7 @@ void Calculator::subtraction(long long a,long long b)
 
 int main()
 {
-    Calculator c;
+    Calculator<int> c;
     char ch;
     cin>>ch;
     long long inp1;
