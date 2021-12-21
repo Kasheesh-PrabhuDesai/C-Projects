@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <map>
 
 using namespace std;
 
@@ -12,7 +13,8 @@ class Student
     string division;
     string standard;
     string roll_no;
-    vector<vector<string>> student_details;
+    vector<vector<string>> student_information;
+    map<string,vector<vector<string>>> student_details;
 
     public:
 
@@ -22,7 +24,7 @@ class Student
         last_name.clear();
         division.clear();
         standard.clear();
-        student_details.clear();
+        student_information.clear();
     }
 
     void set_student_details(string first_name, string last_name, string division, string standard,string roll_no)
@@ -32,7 +34,8 @@ class Student
         standard = standard;
         division = division;
         roll_no = roll_no;
-        student_details.push_back({first_name,last_name,standard,division,roll_no});
+        student_information.push_back({first_name,last_name,standard,division,roll_no});
+        student_details[first_name] = student_information;
 
     }
 
