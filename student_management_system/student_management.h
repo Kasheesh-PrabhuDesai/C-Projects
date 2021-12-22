@@ -1,10 +1,11 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <iostream>
 
 using namespace std;
 
-//a base class to store the personal details of the student
+//main class to store the personal details of the student
 class Student
 {
     private:
@@ -13,44 +14,48 @@ class Student
     string division;
     string standard;
     string roll_no;
-    vector<vector<string>> student_information;
-    map<string,vector<vector<string>>> student_details;
+    map<string,vector<string>> student_details;
 
     public:
-
+    //constructor when called clears all the data stored in the variables
     Student()
     {
         first_name.clear();
         last_name.clear();
         division.clear();
         standard.clear();
-        student_information.clear();
     }
 
-    void set_student_details(string first_name, string last_name, string division, string standard,string roll_no)
+    //function to store the details entered in the terminal in the student database
+    void set_student_details(vector<string>& studentInformation,string& first_name)
     {
-        first_name = first_name;
-        last_name = last_name;
-        standard = standard;
-        division = division;
-        roll_no = roll_no;
-        student_information.push_back({first_name,last_name,standard,division,roll_no});
-        student_details[first_name] = student_information;
+        student_details[first_name] = studentInformation;
 
+        cout<<"STUDENT ADDED SUCCESSFULLY"<<endl;
     }
 
-    string get_student_name(char key, string value)
+    //function that will be used to return the details of a student when the search query is issued
+    void get_student_details(string& key)
     {
-        if(key=='f'||key=="F")
-            return student_details[]
-    }
-    string get_student_division()
-    {
-        return division;
-    }
-    string get_student_standard()
-    {
-        return standard;
+        if(student_details.find(key)!=student_details.end())
+        {
+            string StudentDetails = "";
+            for(auto student_contents:student_details[key])
+            {
+                StudentDetails = StudentDetails + student_contents + " ";
+            }
+            
+            cout<<"Search Successfull!"<<endl;
+            cout<<StudentDetails<<endl;
+        }
+
+        else
+        {
+            cout<<"ERROR! STUDENT DOES NOT EXIST"<<endl;
+        }
+            
+
+
     }
 
 };
@@ -59,8 +64,13 @@ class Student
 class AddStudent: public Student
 {
     public:
+    vector<string> studentInformation;
 
-    void add_student_details();
+    AddStudent()
+    {
+        studentInformation.clear();
+    }
+    void add_student_details(string& first_name, string& last_name, string& standard, string& divison, string& roll_no);
 
 };
 
@@ -69,6 +79,6 @@ class SearchStudent: public Student
 {
     public:
 
-    string get_student_details();
+    void search_for_student(string& first_name);
 };
 
