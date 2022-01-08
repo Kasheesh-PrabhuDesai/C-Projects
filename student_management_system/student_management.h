@@ -32,6 +32,7 @@ class Student
         student_details[first_name] = studentInformation;
 
         cout<<"STUDENT ADDED SUCCESSFULLY"<<endl;
+
     }
 
     //function that will be used to return the details of a student when the search query is issued

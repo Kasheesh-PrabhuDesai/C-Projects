@@ -3,11 +3,8 @@
 //when a new student joins the school, his/her details are added to the database using this function
 void AddStudent::add_student_details(string& first_name, string& last_name, string& standard, string& division, string& roll_no)
 {
-    studentInformation.push_back(first_name);
-    studentInformation.push_back(last_name);
-    studentInformation.push_back(standard);
-    studentInformation.push_back(division);
-    studentInformation.push_back(roll_no);
+    string currentStudentDetails = first_name+last_name+standard+division+roll_no;
+    studentInformation.push_back(currentStudentDetails);
     set_student_details(studentInformation,first_name);
 }
 
